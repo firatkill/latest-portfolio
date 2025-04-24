@@ -5,16 +5,16 @@ import { FiArrowDown } from "react-icons/fi";
 
 export default function Home() {
   return (
-    <section className="h-screen w-full  flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 absolute top-0 left-0 bg-gradient-to-br from-white to-gray-100 ">
+    <section className="min-h-screen pb-16 w-full flex items-center justify-center flex-col px-4 sm:px-6 md:px-16 lg:px-24">
       {/* Fixed Title for Mobile */}
-      <div className="pt-6  pb-2 md:hidden sticky top-0 z-10 from-white to-gray-100 ">
+      <div className="pt-6 pb-2 md:hidden sticky top-0 z-10 bg-gradient-to-b from-white to-gray-100 w-full">
         <h1 className="text-2xl font-bold text-center">Welcome</h1>
         <div className="h-1 w-16 bg-primary mx-auto mt-1"></div>
       </div>
 
-      {/* Scrollable Content */}
-      <div className="flex-1   overflow-y-auto overscroll-contain isolate contain-scroll md:py-4 md:pt-4 pt-72 pb-24 flex items-center">
-        <div className="max-w-7xl !py-20 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      {/* Main Content */}
+      <div className="flex-1 w-full flex items-center justify-center py-8 md:py-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}

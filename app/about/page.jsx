@@ -95,7 +95,7 @@ const journeyData = {
 
 export default function AboutPage() {
   return (
-    <section className="h-screen pt-16 z-0 overflow-scroll  w-full  px-4 sm:px-6 md:px-16 lg:px-24 bg-gradient-to-r from-slate-100 to-white ">
+    <section className="h-full  z-0 mt-10  w-full  px-4 sm:px-6 md:px-16 lg:px-24 bg-gradient-to-r from-slate-100 to-white ">
       {/* Scrollable Content */}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative">

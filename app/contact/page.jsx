@@ -138,7 +138,7 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="h-screen w-full flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 ">
+    <section className="h-full w-full flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 ">
       {/* Fixed Title for Mobile */}
       <div className="pt-6 pb-2 md:hidden sticky top-0 z-10  bg-transparent">
         <h2 className="text-2xl font-bold text-center">Contact Me</h2>
@@ -146,8 +146,8 @@ export default function ContactPage() {
       </div>
 
       {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto overscroll-contain isolate contain-scroll py-4 pb-24">
-        <div className="w-full mx-auto">
+      <div className="flex-1 overflow-y-auto overscroll-contain isolate contain-scroll  pb-24">
+        <div className="w-full  py-4 mx-auto">
           {/* Desktop Title */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -155,7 +155,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-8 lg:mb-16 hidden md:block"
           >
-            <p className="mt-6 max-w-2xl mx-auto">
+            <p className=" max-w-2xl mx-auto">
               Feel free to reach out if you have any questions or would like to
               work together. I'm always open to new opportunities and
               collaborations.

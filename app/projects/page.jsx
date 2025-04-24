@@ -136,7 +136,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <section className="h-screen  w-full flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 ">
+    <section className="h-full z-0 overflow-scroll   w-full flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 ">
       {/* Fixed Title for Mobile */}
       <div className=" pb-2 md:hidden sticky top-0 z-10 bg-transparent">
         <h2 className="text-2xl font-bold text-center">My Projects</h2>
@@ -153,12 +153,12 @@ export default function ProjectsPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-8 lg:mb-10 hidden md:block"
           >
-            <p className="mt-5 max-w-2xl mx-auto text-gray-600">
+            <p className="mt-5 max-w-2xl  mx-auto text-gray-600">
               Here are some of my featured projects. Each one represents a
               unique challenge I've tackled and skills I've developed along the
               way.
             </p>
-            <div className="h-1 w-20 rounded-xl bg-accent mx-auto"></div>
+            <div className="h-1 w-20 mt-1 rounded-xl bg-accent mx-auto"></div>
           </motion.div>
 
           <div className="px-4">
