@@ -1,8 +1,6 @@
-"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavigationController from "@/components/layout/navigationController";
-import { Toaster } from "react-hot-toast";
+import ClientComponents from "./client-components";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,16 +12,26 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: "Fırat Kıl | Portfolio",
+  description: "Personal portfolio showcasing projects and skills",
+  keywords: ["portfolio", "web development", "frontend", "developer"],
+  authors: [{ name: "Fırat Kıl" }],
+  creator: "Fırat Kıl",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable}  ${geistMono.variable} antialiased !bg-gradient-to-r !from-slate-100 !to-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased !bg-gradient-to-r !from-slate-100 !to-white`}
       >
-        <Toaster position="top-center" reverseOrder={false} />
-        <NavigationController />
-        <main className=" z-0 h-screen w-screen overflow-auto pt-20 md:pt-16  ">
-          <div className="">{children}</div>
+        <ClientComponents />
+        <main className="z-0 h-screen w-screen overflow-auto pt-20 md:pt-16">
+          <div>{children}</div>
         </main>
       </body>
     </html>
