@@ -136,7 +136,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <section className="h-full z-0 overflow-scroll   w-full flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 ">
+    <section className="h-full z-0 overflow-scroll mb-16  w-full flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 ">
       {/* Fixed Title for Mobile */}
       <div className=" pb-2 md:hidden sticky top-0 z-10 bg-transparent">
         <h2 className="text-2xl font-bold text-center">My Projects</h2>
