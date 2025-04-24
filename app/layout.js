@@ -26,8 +26,8 @@ export default function RootLayout({ children }) {
       >
         <Toaster position="top-center" reverseOrder={false} />
         <NavigationController />
-        <main className="relative h-screen w-screen overflow-auto !pt-16 ">
-          {children}
+        <main className=" z-0 h-screen w-screen overflow-auto !md:pt-16 pt-2 ">
+          <div className="">{children}</div>
         </main>
       </body>
     </html>

@@ -19,6 +19,21 @@ const journeyData = {
       description:
         "Through self-learning, I've gained experience through internships and freelance work. I've always enjoyed challenging projects, and my pursuit of internships and work opportunities while managing a demanding academic schedule is a testament to my dedication to growth and learning.",
     },
+    {
+      title: "Vue Frontend Developer Internship",
+      description:
+        "At Paramount Students (March 2023 - June 2023), I developed user interfaces using Vue.js for various web applications, contributing to the overall improvement of the user experience. I gained hands-on experience with modern interface development processes and tools, participated in regular code reviews to maintain code quality and efficiency, and worked with team members from different nationalities.",
+    },
+    {
+      title: "Full Stack Developer Internship",
+      description:
+        "At Medyanes360 (August 2024 - October 2024), I participated in the full-stack development process with a large team across several startup projects. I took an active role in product development processes using Next.js, Prisma, MongoDB, and other tools. After proving myself in this position, I was promoted to team leader and later to project manager.",
+    },
+    {
+      title: "Software Development Project Leader",
+      description:
+        "At Medyanes360, I took responsibility in project implementation processes such as task distribution, team organization, and product realization as a manager. During this time, I continued my software career as a full-stack developer, helping our development teams. Additionally, I developed a management panel application for a Ukraine-based furniture factory that needed urgent completion. This management panel included all functionalities a factory would need, from product supply/production process to store personnel management, logistics tracking of products, invoicing of transactions, and monitoring the company's income-expenses.",
+    },
   ],
   values: [
     {
@@ -95,10 +110,8 @@ const journeyData = {
 
 export default function AboutPage() {
   return (
-    <section className="h-full  z-0 mt-10  w-full  px-4 sm:px-6 md:px-16 lg:px-24 bg-gradient-to-r from-slate-100 to-white ">
-      {/* Scrollable Content */}
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 relative">
+    <section className="h-full overflow-scroll mb-20  z-0   w-full  px-4 sm:px-6 md:px-16 lg:px-24 bg-gradient-to-r from-slate-100 to-white ">
+      <div className="grid grid-cols-1  gap-8 lg:gap-12 relative">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -131,7 +144,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="relative lg:mt-32"
+          className="relative  !z-0"
         >
           <div className=" mb-24 relative bg-white  shadow-xl rounded-xl p-8 border border-gray-100 ">
             <h3 className="text-xl font-semibold mb-6 text-slate-700 ">

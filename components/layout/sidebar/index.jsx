@@ -24,7 +24,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <div className="w-full flex md:hidden justify-end  h-18">
+      <div className=" flex md:hidden justify-end z-[999999999999999999999]  !w-screen  !h-16  !bg-gradient-to-r !from-slate-100 !to-white shadow-md">
         <button
           onClick={toggleSidebar}
           className={`md:hidden fixed top-4 ${
