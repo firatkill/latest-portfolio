@@ -210,24 +210,20 @@ function TechCard({ tech }) {
       whileHover={{ y: -5, scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <div className="backdrop-blur-sm bg-white/5 dark:bg-white/5 bg-gray-100/80 dark:bg-gray-900/80 rounded-lg p-4 h-24 flex flex-col items-center justify-center shadow-lg hover:bg-white/10 dark:hover:bg-white/10 transition-all duration-300">
+      <div className="backdrop-blur-sm bg-white/5 bg-gray-100/80 rounded-lg p-4 h-24 flex flex-col items-center justify-center shadow-lg hover:bg-white/10 transition-all duration-300">
         <div className="text-2xl mb-2">{tech.icon}</div>
-        <p className="text-sm font-medium text-gray-600 dark:text-slate-400">
-          {tech.name}
-        </p>
+        <p className="text-sm font-medium text-gray-600">{tech.name}</p>
       </div>
 
       {showPopup && (
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10 bg-blue-500/20 dark:bg-blue-500/20 backdrop-blur-md text-gray-900 dark:text-white px-4 py-2 rounded-lg shadow-lg border border-blue-500/30 min-w-[150px]"
+          className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10 bg-blue-500/20 backdrop-blur-md text-gray-900 px-4 py-2 rounded-lg shadow-lg border border-blue-500/30 min-w-[150px]"
         >
           <div className="text-center">
             <p className="font-bold text-sm">{tech.name}</p>
-            <p className="text-xs text-blue-600 dark:text-blue-200">
-              Since {tech.startYear}
-            </p>
+            <p className="text-xs text-blue-600">Since {tech.startYear}</p>
             <p className="text-sm font-semibold">
               {years}
               {years === 1 ? "+ year" : "+ years"} of experience
@@ -249,7 +245,7 @@ function CategorySection({ category }) {
       transition={{ duration: 0.5 }}
       className="mb-10"
     >
-      <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-4 border-b border-gray-200 dark:border-white/10 pb-2">
+      <h3 className="text-xl font-bold text-blue-600 mb-4 border-b border-gray-200 pb-2">
         {category.category}
       </h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
@@ -264,7 +260,7 @@ function CategorySection({ category }) {
 // Main tech stack component
 export default function TechStack() {
   return (
-    <div className="w-full h-full text-gray-900 dark:text-white py-6 px-6 pb-16 overflow-y-auto overscroll-contain isolate contain-scroll">
+    <div className="w-full h-full text-gray-900 py-6 px-6 pb-16 overflow-y-auto overscroll-contain isolate contain-scroll">
       <div className="max-w-7xl mx-auto">
         {techData.map((category, index) => (
           <CategorySection key={index} category={category} />

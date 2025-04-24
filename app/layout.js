@@ -22,11 +22,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} h-screen w-screen ${geistMono.variable} antialiased !bg-gradient-to-r from-slate-100 to-white`}
+        className={`${geistSans.variable}  ${geistMono.variable} antialiased !bg-gradient-to-r !from-slate-100 !to-white`}
       >
         <Toaster position="top-center" reverseOrder={false} />
         <NavigationController />
-        <main>{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   );

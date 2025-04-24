@@ -27,7 +27,7 @@ const socialLinks = [
     icon: FaGithub,
     href: "#",
     className:
-      "w-10 h-10 rounded-full bg-gray-800 dark:bg-white hover:bg-opacity-90 flex items-center justify-center text-white dark:text-gray-800 transition-all",
+      "w-10 h-10 rounded-full bg-gray-800  hover:bg-opacity-90 flex items-center justify-center text-white  transition-all",
   },
   {
     icon: FaTwitter,
@@ -188,7 +188,7 @@ export default function ContactPage() {
                         }
                         id={field.id}
                         rows={field.rows}
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder={field.placeholder}
                       />
                     ) : (
@@ -209,7 +209,7 @@ export default function ContactPage() {
                         }
                         type={field.type}
                         id={field.id}
-                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-gray-800"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                         placeholder={field.placeholder}
                       />
                     )}
@@ -230,7 +230,7 @@ export default function ContactPage() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="flex flex-col justify-between"
             >
-              <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-8 border border-gray-200 dark:border-gray-700 mb-8">
+              <div className="bg-white shadow-lg rounded-xl p-8 border border-gray-200 mb-8">
                 <h3 className="text-xl font-semibold mb-6">
                   Contact Information
                 </h3>
@@ -240,9 +240,7 @@ export default function ContactPage() {
                       <FaEnvelopeOpen className="text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Email
-                      </p>
+                      <p className="text-sm text-gray-500">Email</p>
                       <p className="font-medium">{contactInfo.email}</p>
                     </div>
                   </div>
@@ -251,9 +249,7 @@ export default function ContactPage() {
                       <FaLinkedin className="text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        LinkedIn
-                      </p>
+                      <p className="text-sm text-gray-500">LinkedIn</p>
                       <p className="font-medium">{contactInfo.linkedin}</p>
                     </div>
                   </div>
@@ -262,16 +258,14 @@ export default function ContactPage() {
                       <FaGithub className="text-white" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        GitHub
-                      </p>
+                      <p className="text-sm text-gray-500">GitHub</p>
                       <p className="font-medium">{contactInfo.github}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-8 border border-gray-200 dark:border-gray-700">
+              <div className="bg-white shadow-lg rounded-xl p-8 border border-gray-200">
                 <h3 className="text-xl font-semibold mb-6">Connect with Me</h3>
                 <div className="flex gap-4">
                   {socialLinks.map((social, index) => (

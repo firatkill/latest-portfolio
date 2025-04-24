@@ -5,9 +5,9 @@ import { FiArrowDown } from "react-icons/fi";
 
 export default function Home() {
   return (
-    <section className="h-screen w-full  flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 absolute top-0 left-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <section className="h-screen w-full  flex flex-col px-4 sm:px-6 md:px-16 lg:px-24 absolute top-0 left-0 bg-gradient-to-br from-white to-gray-100 ">
       {/* Fixed Title for Mobile */}
-      <div className="pt-6  pb-2 md:hidden sticky top-0 z-10 from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="pt-6  pb-2 md:hidden sticky top-0 z-10 from-white to-gray-100 ">
         <h1 className="text-2xl font-bold text-center">Welcome</h1>
         <div className="h-1 w-16 bg-primary mx-auto mt-1"></div>
       </div>
@@ -24,7 +24,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="inline-block  px-4 py-1 rounded-full text-sm font-semibold bg-slate-500 bg-opacity-10 text-white dark:text-slate-300 mb-6"
+              className="inline-block  px-4 py-1 rounded-full text-sm font-semibold bg-slate-500 bg-opacity-10 text-white  mb-6"
             >
               Full Stack Developer
             </motion.span>
@@ -32,7 +32,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-500 dark:from-white dark:to-gray-400"
+              className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-500 "
             >
               Hi! I am <span className="text-slate-500">Fırat</span>.
             </motion.h1>
@@ -40,7 +40,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 dark:text-gray-300"
+              className="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 "
             >
               Creating digital experiences that matter
             </motion.h2>
@@ -48,7 +48,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg mb-8 max-w-lg text-gray-500 dark:text-gray-400"
+              className="text-lg mb-8 max-w-lg text-gray-500 "
             >
               I'm a passionate full stack developer specializing in building
               exceptional digital experiences with modern web technologies.
@@ -68,8 +68,8 @@ export default function Home() {
               </button>
               <button
                 onClick={() => goToSection(4)}
-                className="flex  cursor-pointer items-center justify-center gap-2 border border-slate-400 text-slate-600 dark:text-white px-5 py-3 rounded-lg 
-                hover:bg-slate-100 dark:hover:bg-slate-700 transition-all duration-300 text-sm sm:text-base mt-2 sm:mt-0"
+                className="flex  cursor-pointer items-center justify-center gap-2 border border-slate-400 text-slate-600  px-5 py-3 rounded-lg 
+                hover:bg-slate-100  transition-all duration-300 text-sm sm:text-base mt-2 sm:mt-0"
               >
                 Contact Me
               </button>
@@ -92,7 +92,7 @@ export default function Home() {
                   ease: "easeInOut",
                   repeat: Infinity,
                 }}
-                className="absolute inset-0 bg-gradient-to-r from-slate-500 to-blue-400 rounded-full blur-2xl opacity-30 dark:opacity-50"
+                className="absolute inset-0 bg-gradient-to-r from-slate-500 to-blue-400 rounded-full blur-2xl opacity-30 "
                 style={{
                   width: "90%",
                   height: "90%",
@@ -100,7 +100,7 @@ export default function Home() {
                   left: "5%",
                 }}
               />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white  shadow-2xl">
                 <img
                   src="/profile.jpeg"
                   alt="Profile"
@@ -110,7 +110,7 @@ export default function Home() {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-5 -right-5 bg-white dark:bg-gray-800 p-4 rounded-full shadow-lg"
+                className="absolute -bottom-5 -right-5 bg-white  p-4 rounded-full shadow-lg"
               >
                 <span className="text-3xl">👨‍💻</span>
               </motion.div>

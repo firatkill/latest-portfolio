@@ -32,9 +32,9 @@ export default function Sidebar() {
           }  z-50 p-2 transition-all  cursor-pointer duration-300 rounded-lg bg-transparent  shadow-md `}
         >
           {isOpen ? (
-            <FiX className="w-6 h-6 text-gray-800 dark:text-white" />
+            <FiX className="w-6 h-6 text-gray-800" />
           ) : (
-            <FiMenu className="w-6 h-6 text-gray-800 dark:text-white" />
+            <FiMenu className="w-6 h-6 text-gray-800" />
           )}
         </button>
         <Image
@@ -47,7 +47,7 @@ export default function Sidebar() {
       </div>
 
       <div
-        className={`fixed top-0 left-0 h-full w-64 !bg-gradient-to-r from-slate-100 to-white dark:bg-gray-900 shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${
+        className={`fixed top-0 left-0 h-full w-64 !bg-gradient-to-r from-slate-100 to-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } md:hidden`}
       >
@@ -70,7 +70,7 @@ export default function Sidebar() {
                 className={`block py-3   my-2 px-5 rounded-xl font-bold transition-all duration-200 ${
                   pathname === link.path
                     ? "text-black bg-slate-300"
-                    : "text-slate-500 hover:bg-slate-200 hover:text-slate-700 hover:scale-105 dark:hover:text-slate-700"
+                    : "text-slate-500 hover:bg-slate-200 hover:text-slate-700 hover:scale-105"
                 }`}
               >
                 {link.name}
