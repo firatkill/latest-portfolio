@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,9 +17,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 h-16 hidden md:block   z-[500000000000] !w-screen !bg-gradient-to-r !from-slate-100 !to-white shadow-md ">
+      <nav className="fixed top-0 left-0 right-0 h-16 hidden md:block   z-[9999999] !w-screen !bg-gradient-to-r !from-slate-100 !to-white shadow-md ">
         <div className="max-w-7xl mx-auto px-4 h-full">
-          <div className="flex items-center justify-end h-full">
+          <div className="flex items-center justify-between h-full">
+            <Image src="/logo.svg" width={100} height={30} alt="logo" />
             <div className="hidden md:flex space-x-8">
               {navLinks.map((link) => (
                 <Link

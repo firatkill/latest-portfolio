@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiArrowDown } from "react-icons/fi";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 export default function Home() {
   return (
@@ -53,20 +54,20 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <button
-                onClick={() => goToSection(2)}
+              <Link
+                href="/projects"
                 className="flex  cursor-pointer items-center justify-center gap-2 bg-slate-500 text-white px-5 py-3 rounded-lg 
                 hover:bg-opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105 text-sm sm:text-base"
               >
-                Explore My Work <FiArrowDown className="animate-bounce ml-1" />
-              </button>
-              <button
-                onClick={() => goToSection(4)}
+                Explore My Work <FiArrowRight className="animate-bounce ml-1" />
+              </Link>
+              <Link
+                href="/contact"
                 className="flex  cursor-pointer items-center justify-center gap-2 border border-slate-400 text-slate-600  px-5 py-3 rounded-lg 
                 hover:bg-slate-100  transition-all duration-300 text-sm sm:text-base mt-2 sm:mt-0"
               >
                 Contact Me
-              </button>
+              </Link>
             </motion.div>
           </motion.div>
           <motion.div

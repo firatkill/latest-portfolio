@@ -2,38 +2,27 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaEnvelopeOpen,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelopeOpen } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 const contactInfo = {
   email: "firatkill.is@gmail.com",
   linkedin: "linkedin.com/in/firatkill",
-  github: "github.com/yourusername",
+  github: "github.com/firatkill",
 };
 
 const socialLinks = [
   {
     icon: FaLinkedin,
-    href: "#",
+    href: "https://www.linkedin.com/in/firatkill/",
     className:
       "w-10 h-10 rounded-full bg-primary hover:bg-opacity-90 flex items-center justify-center text-white transition-all",
   },
   {
     icon: FaGithub,
-    href: "#",
+    href: "https://github.com/firatkill",
     className:
       "w-10 h-10 rounded-full bg-gray-800  hover:bg-opacity-90 flex items-center justify-center text-white  transition-all",
-  },
-  {
-    icon: FaTwitter,
-    href: "#",
-    className:
-      "w-10 h-10 rounded-full bg-blue-400 hover:bg-opacity-90 flex items-center justify-center text-white transition-all",
   },
 ];
 

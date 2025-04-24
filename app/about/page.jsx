@@ -110,7 +110,7 @@ const journeyData = {
 
 export default function AboutPage() {
   return (
-    <section className="h-full overflow-scroll mb-20  z-0   w-full  px-4 sm:px-6 md:px-16 lg:px-24 bg-gradient-to-r from-slate-100 to-white ">
+    <section className="h-full overflow-scroll mb-20  z-0 md:mt-4   w-full  px-4 sm:px-6 md:px-16 lg:px-24 bg-gradient-to-r from-slate-100 to-white ">
       <div className="grid grid-cols-1  gap-8 lg:gap-12 relative">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
