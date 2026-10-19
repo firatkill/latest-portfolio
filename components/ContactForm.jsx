@@ -51,7 +51,7 @@ export default function ContactForm() {
           {status === "sending" ? "Sending…" : "Send message"}
         </button>
         <p className="form-status" role="status" aria-live="polite">
-          {status === "sent" && "Thanks — I’ll get back to you soon."}
+          {status === "sent" && "Thanks, your message is on its way. I’ll reply soon."}
           {status === "error" && error}
         </p>
       </div>

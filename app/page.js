@@ -1,192 +1,202 @@
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
-import { experience, freelance, personal, profile, stack, work } from "@/lib/content";
+import { Mock } from "@/components/mocks";
+import { experience, featured, more, profile, stack } from "@/lib/content";
+import portrait from "@/public/profile.jpeg";
 
-const pad = (n) => String(n).padStart(2, "0");
-
-function Arrow() {
+function SectionHead({ title, children }) {
   return (
-    <svg className="arrow" viewBox="0 0 12 12" aria-hidden="true">
-      <path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" strokeWidth="1.3" />
-    </svg>
-  );
-}
-
-function Section({ id, label, children }) {
-  return (
-    <section id={id} className="section">
-      <h2 className="section-label">{label}</h2>
-      <div className="section-body">{children}</div>
-    </section>
+    <div className="head">
+      <h2>{title}</h2>
+      {children && <p>{children}</p>}
+    </div>
   );
 }
 
 export default function Home() {
   return (
     <>
-      <header className="topbar">
-        <div className="wrap topbar-inner">
-          <a href="#top" className="wordmark">
+      <header className="nav">
+        <div className="wrap nav-inner">
+          <a href="#top" className="nav-name">
             Fırat Kıl
           </a>
           <nav aria-label="Sections">
             <a href="#work">Work</a>
             <a href="#experience">Experience</a>
-            <a href="#stack">Stack</a>
-            <a href="#contact">Contact</a>
+            <a href="#contact" className="nav-cta">
+              Contact
+            </a>
           </nav>
         </div>
       </header>
 
-      <main id="top" className="wrap">
-        <section className="hero">
-          <p className="eyebrow">
-            {profile.role} · {profile.location}
-          </p>
-          <h1>
-            I build AI-powered SaaS products, <em>end to end.</em>
-          </h1>
-          <p className="lede">
-            Data model, auth, billing, background jobs, tests and deployment. Mostly Next.js,
-            TypeScript and PostgreSQL. Right now at Vizio AI, where I’ve shipped products in legal
-            tech, hiring, customer support and e-commerce, usually as the lead or only developer.
-          </p>
-          <ul className="hero-links">
-            <li>
-              <a href={`mailto:${profile.email}`}>{profile.email}</a>
-            </li>
-            <li>
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                GitHub <Arrow />
+      <main id="top">
+        <section className="hero wrap">
+          <div className="hero-text">
+            <h1>I build SaaS products with AI in them, from the database to the deploy.</h1>
+            <p className="hero-sub">
+              I’m a full-stack developer in Ankara. At Vizio AI I lead or solely build client products
+              in legal tech, hiring, customer support and online auctions, mostly with Next.js,
+              TypeScript and PostgreSQL.
+            </p>
+            <div className="hero-actions">
+              <a className="btn" href={`mailto:${profile.email}`}>
+                Email me
               </a>
-            </li>
-            <li>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn <Arrow />
+              <a className="link" href={profile.github} target="_blank" rel="noreferrer">
+                GitHub
               </a>
-            </li>
-          </ul>
+              <a className="link" href={profile.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+          <div className="hero-photo">
+            <Image src={portrait} alt="Fırat Kıl" priority sizes="(max-width: 900px) 40vw, 360px" />
+          </div>
         </section>
 
-        <Section id="work" label="Selected work">
-          <p className="note">
-            Most of this is client work. I describe each product by what it does rather than who
-            it’s for, and I’m happy to go deeper in a conversation.
-          </p>
-          <ol className="work">
-            {work.map((p, i) => (
-              <li key={p.title} className="work-item">
-                <div className="work-meta">
-                  <span className="num">{pad(i + 1)}</span>
-                  <span>{p.year}</span>
-                  <span>{p.role}</span>
-                </div>
-                <div className="work-main">
-                  <h3>{p.title}</h3>
-                  <p className="summary">{p.summary}</p>
-                  <ul className="points">
-                    {p.points.map((pt) => (
-                      <li key={pt}>{pt}</li>
-                    ))}
-                  </ul>
-                  <p className="tags">{p.stack.join("  /  ")}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+        <section id="work" className="band band-white">
+          <div className="wrap">
+            <SectionHead title="Selected work">
+              Most of this is client work, so I describe each product by what it does and leave out
+              who it is for. The screens are simple mock-ups with sample data.
+            </SectionHead>
 
-          <h3 className="sub">Freelance</h3>
-          {freelance.map((f) => (
-            <div key={f.title} className="work-item">
-              <div className="work-meta">
-                <span>{f.year}</span>
-                <span>Solo</span>
-              </div>
-              <div className="work-main">
-                <h3>{f.title}</h3>
-                <p className="summary">{f.summary}</p>
-                <p className="inline-links">
-                  {f.links.map((l) => (
-                    <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
-                      {l.label} <Arrow />
-                    </a>
-                  ))}
-                </p>
-              </div>
+            <div className="projects">
+              {featured.map((p) => (
+                <article key={p.title} className={`project${p.wide ? " project--wide" : ""}`}>
+                  <div className="project-text">
+                    <div>
+                      <h3>{p.title}</h3>
+                      <p className="project-summary">{p.summary}</p>
+                    </div>
+                    <div>
+                      <ul className="project-points">
+                        {p.points.map((pt) => (
+                          <li key={pt}>{pt}</li>
+                        ))}
+                      </ul>
+                      <p className="project-meta">
+                        {p.role} · {p.year}
+                        <br />
+                        {p.stack}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="project-visual">
+                    <Mock kind={p.mock} />
+                  </div>
+                </article>
+              ))}
             </div>
-          ))}
-
-          <h3 className="sub">Side projects</h3>
-          <ul className="side">
-            {personal.map((s) => (
-              <li key={s.title}>
-                <a href={s.href} target="_blank" rel="noreferrer">
-                  <span className="side-title">
-                    {s.title} <Arrow />
-                  </span>
-                  <span className="side-summary">{s.summary}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section id="how" label="How I work">
-          <div className="prose">
-            <p>
-              I use AI coding agents every day. They make me faster, but they don’t decide the
-              data model, where the security boundaries go, what has to be tested or whether a
-              change is ready. Those calls are mine, and I read every diff before it ships.
-            </p>
-            <p>
-              I like to put rules where they can’t be skipped: row-level security in the database,
-              payment state changed only by verified webhooks, auction logic inside Postgres
-              functions. Then I write tests that prove those rules hold.
-            </p>
           </div>
-        </Section>
+        </section>
 
-        <Section id="experience" label="Experience">
-          <ul className="timeline">
-            {experience.map((e) => (
-              <li key={e.company + e.title}>
-                <span className="period">{e.period}</span>
-                <div>
-                  <p className="tl-head">
-                    {e.title} <span className="at">at</span> {e.company}
-                  </p>
-                  <p className="tl-note">{e.note}</p>
+        <section className="band band-dark">
+          <div className="wrap">
+            <div className="statement-grid">
+            <p className="statement">
+              I write most code with AI agents now. I still decide the data model, the security
+              rules and the tests, and I read every change before it ships.
+            </p>
+            <div className="statement-cols">
+              <p>
+                I like rules that can’t be skipped. Row-level security lives in the database. Payment
+                state only changes when a verified webhook arrives. Auction logic runs inside Postgres
+                functions.
+              </p>
+              <p>
+                Then I prove those rules hold, with pgTAP for the database, Playwright for the flows
+                and unit tests for the parts with real logic, like matching payments to invoices.
+              </p>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="band">
+          <div className="wrap">
+            <SectionHead title="More projects">
+              Smaller client products, freelance sites and a few tools I built for myself.
+            </SectionHead>
+            <ul className="more">
+              {more.map((m) => (
+                <li key={m.title}>
+                  <h3>{m.title}</h3>
+                  <p>{m.summary}</p>
+                  <p className="more-meta">{m.meta}</p>
+                  {m.links && (
+                    <p className="more-links">
+                      {m.links.map((l) => (
+                        <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
+                          {l.label}
+                        </a>
+                      ))}
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section id="experience" className="band band-white">
+          <div className="wrap">
+            <SectionHead title="Experience">
+              Economics at Ankara University and Computer Engineering at Ahmet Yesevi University.
+            </SectionHead>
+            <ul className="jobs">
+              {experience.map((e) => (
+                <li key={e.company + e.title}>
+                  <span className="jobs-period">{e.period}</span>
+                  <span className="jobs-detail">
+                    <span className="jobs-role">
+                      {e.title}, {e.company}
+                    </span>
+                    <span className="jobs-note">{e.note}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <dl className="tools">
+              {stack.map(([group, items]) => (
+                <div key={group}>
+                  <dt>{group}</dt>
+                  <dd>{items}</dd>
                 </div>
-              </li>
-            ))}
-          </ul>
-          <p className="edu">
-            Economics, Ankara University · Computer Engineering, Ahmet Yesevi University
-          </p>
-        </Section>
+              ))}
+            </dl>
+          </div>
+        </section>
 
-        <Section id="stack" label="Stack">
-          <dl className="stack">
-            {stack.map((s) => (
-              <div key={s.group}>
-                <dt>{s.group}</dt>
-                <dd>{s.items}</dd>
-              </div>
-            ))}
-          </dl>
-        </Section>
-
-        <Section id="contact" label="Contact">
-          <p className="contact-lede">
-            The quickest way to reach me is email:{" "}
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>. Or leave a message here.
-          </p>
-          <ContactForm />
-        </Section>
+        <section id="contact" className="band">
+          <div className="wrap contact">
+            <div>
+              <h2 className="contact-title">Working on something? Send me a note.</h2>
+              <p className="contact-sub">
+                Or write to me directly at{" "}
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>.
+              </p>
+            </div>
+            <ContactForm />
+          </div>
+        </section>
       </main>
 
-      <footer className="wrap footer">
-        <span>© {new Date().getFullYear()} Fırat Kıl</span>
-        <span>Ankara · Built with Next.js</span>
+      <footer className="wrap">
+        <div className="footer-inner">
+        <span>Fırat Kıl · Full-stack developer, Ankara</span>
+        <span>
+          <a href={profile.github} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+        </span>
+        </div>
       </footer>
     </>
   );
