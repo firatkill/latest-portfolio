@@ -1,118 +1,193 @@
-"use client";
+import ContactForm from "@/components/ContactForm";
+import { experience, freelance, personal, profile, stack, work } from "@/lib/content";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
+const pad = (n) => String(n).padStart(2, "0");
+
+function Arrow() {
+  return (
+    <svg className="arrow" viewBox="0 0 12 12" aria-hidden="true">
+      <path d="M3 9 9 3M4 3h5v5" fill="none" stroke="currentColor" strokeWidth="1.3" />
+    </svg>
+  );
+}
+
+function Section({ id, label, children }) {
+  return (
+    <section id={id} className="section">
+      <h2 className="section-label">{label}</h2>
+      <div className="section-body">{children}</div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
-    <section className="min-h-screen !z-0 pb-16 w-full flex items-center justify-center flex-col px-4 sm:px-6 md:px-16 lg:px-24">
-      {/* Main Content */}
-      <div className="flex-1 w-full flex items-center justify-center py-8 md:py-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="inline-block  px-4 py-1 rounded-full text-sm font-semibold bg-slate-500 bg-opacity-10 text-white  mb-6"
-            >
-              Full Stack Developer
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-slate-500 "
-            >
-              Hi! I am <span className="text-slate-500">Fırat</span>.
-            </motion.h1>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 "
-            >
-              Creating digital experiences that matter
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg mb-8 max-w-lg text-gray-500 "
-            >
-              I'm a passionate full stack developer specializing in building
-              exceptional digital experiences with modern web technologies.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                href="/projects"
-                className="flex  cursor-pointer items-center justify-center gap-2 bg-slate-500 text-white px-5 py-3 rounded-lg 
-                hover:bg-opacity-90 transition-all duration-300 hover:shadow-lg hover:scale-105 text-sm sm:text-base"
-              >
-                Explore My Work <FiArrowRight className="animate-bounce ml-1" />
-              </Link>
-              <Link
-                href="/contact"
-                className="flex  cursor-pointer items-center justify-center gap-2 border border-slate-400 text-slate-600  px-5 py-3 rounded-lg 
-                hover:bg-slate-100  transition-all duration-300 text-sm sm:text-base mt-2 sm:mt-0"
-              >
-                Contact Me
-              </Link>
-            </motion.div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="flex justify-center"
-          >
-            <div className="relative">
-              <motion.div
-                animate={{
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 5, 0, -5, 0],
-                }}
-                transition={{
-                  duration: 8,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                }}
-                className="absolute inset-0 bg-gradient-to-r from-slate-500 to-blue-400 rounded-full blur-2xl opacity-30 "
-                style={{
-                  width: "90%",
-                  height: "90%",
-                  top: "5%",
-                  left: "5%",
-                }}
-              />
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white  shadow-2xl">
-                <img
-                  src="/profile.jpeg"
-                  alt="Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-5 -right-5 bg-white  p-4 rounded-full shadow-lg"
-              >
-                <span className="text-3xl">👨‍💻</span>
-              </motion.div>
-            </div>
-          </motion.div>
+    <>
+      <header className="topbar">
+        <div className="wrap topbar-inner">
+          <a href="#top" className="wordmark">
+            Fırat Kıl
+          </a>
+          <nav aria-label="Sections">
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#stack">Stack</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
-      </div>
-    </section>
+      </header>
+
+      <main id="top" className="wrap">
+        <section className="hero">
+          <p className="eyebrow">
+            {profile.role} · {profile.location}
+          </p>
+          <h1>
+            I build AI-powered SaaS products, <em>end to end.</em>
+          </h1>
+          <p className="lede">
+            Data model, auth, billing, background jobs, tests and deployment. Mostly Next.js,
+            TypeScript and PostgreSQL. Right now at Vizio AI, where I’ve shipped products in legal
+            tech, hiring, customer support and e-commerce, usually as the lead or only developer.
+          </p>
+          <ul className="hero-links">
+            <li>
+              <a href={`mailto:${profile.email}`}>{profile.email}</a>
+            </li>
+            <li>
+              <a href={profile.github} target="_blank" rel="noreferrer">
+                GitHub <Arrow />
+              </a>
+            </li>
+            <li>
+              <a href={profile.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn <Arrow />
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <Section id="work" label="Selected work">
+          <p className="note">
+            Most of this is client work. I describe each product by what it does rather than who
+            it’s for, and I’m happy to go deeper in a conversation.
+          </p>
+          <ol className="work">
+            {work.map((p, i) => (
+              <li key={p.title} className="work-item">
+                <div className="work-meta">
+                  <span className="num">{pad(i + 1)}</span>
+                  <span>{p.year}</span>
+                  <span>{p.role}</span>
+                </div>
+                <div className="work-main">
+                  <h3>{p.title}</h3>
+                  <p className="summary">{p.summary}</p>
+                  <ul className="points">
+                    {p.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
+                  <p className="tags">{p.stack.join("  /  ")}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <h3 className="sub">Freelance</h3>
+          {freelance.map((f) => (
+            <div key={f.title} className="work-item">
+              <div className="work-meta">
+                <span>{f.year}</span>
+                <span>Solo</span>
+              </div>
+              <div className="work-main">
+                <h3>{f.title}</h3>
+                <p className="summary">{f.summary}</p>
+                <p className="inline-links">
+                  {f.links.map((l) => (
+                    <a key={l.href} href={l.href} target="_blank" rel="noreferrer">
+                      {l.label} <Arrow />
+                    </a>
+                  ))}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          <h3 className="sub">Side projects</h3>
+          <ul className="side">
+            {personal.map((s) => (
+              <li key={s.title}>
+                <a href={s.href} target="_blank" rel="noreferrer">
+                  <span className="side-title">
+                    {s.title} <Arrow />
+                  </span>
+                  <span className="side-summary">{s.summary}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section id="how" label="How I work">
+          <div className="prose">
+            <p>
+              I use AI coding agents every day. They make me faster, but they don’t decide the
+              data model, where the security boundaries go, what has to be tested or whether a
+              change is ready. Those calls are mine, and I read every diff before it ships.
+            </p>
+            <p>
+              I like to put rules where they can’t be skipped: row-level security in the database,
+              payment state changed only by verified webhooks, auction logic inside Postgres
+              functions. Then I write tests that prove those rules hold.
+            </p>
+          </div>
+        </Section>
+
+        <Section id="experience" label="Experience">
+          <ul className="timeline">
+            {experience.map((e) => (
+              <li key={e.company + e.title}>
+                <span className="period">{e.period}</span>
+                <div>
+                  <p className="tl-head">
+                    {e.title} <span className="at">at</span> {e.company}
+                  </p>
+                  <p className="tl-note">{e.note}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="edu">
+            Economics, Ankara University · Computer Engineering, Ahmet Yesevi University
+          </p>
+        </Section>
+
+        <Section id="stack" label="Stack">
+          <dl className="stack">
+            {stack.map((s) => (
+              <div key={s.group}>
+                <dt>{s.group}</dt>
+                <dd>{s.items}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+
+        <Section id="contact" label="Contact">
+          <p className="contact-lede">
+            The quickest way to reach me is email:{" "}
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>. Or leave a message here.
+          </p>
+          <ContactForm />
+        </Section>
+      </main>
+
+      <footer className="wrap footer">
+        <span>© {new Date().getFullYear()} Fırat Kıl</span>
+        <span>Ankara · Built with Next.js</span>
+      </footer>
+    </>
   );
 }

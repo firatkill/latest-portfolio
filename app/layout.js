@@ -1,39 +1,43 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import ClientComponents from "./client-components";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const sans = Geist({ variable: "--font-sans", subsets: ["latin", "latin-ext"] });
+const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin", "latin-ext"] });
+const serif = Instrument_Serif({
+  variable: "--font-serif",
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin", "latin-ext"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const description =
+  "Full-stack developer in Ankara building AI-powered SaaS products with Next.js, TypeScript and PostgreSQL.";
 
 export const metadata = {
-  title: "Fırat Kıl | Portfolio",
-  description: "Personal portfolio showcasing projects and skills",
-  keywords: ["portfolio", "web development", "frontend", "developer"],
+  metadataBase: new URL("https://firatkil.vercel.app"),
+  title: "Fırat Kıl — Full-Stack Developer",
+  description,
   authors: [{ name: "Fırat Kıl" }],
-  creator: "Fırat Kıl",
-  icons: {
-    icon: "/favicon.ico",
+  openGraph: {
+    title: "Fırat Kıl — Full-Stack Developer",
+    description,
+    url: "/",
+    siteName: "Fırat Kıl",
+    type: "website",
   },
+};
+
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f1ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#141413" },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased !bg-gradient-to-r !from-slate-100 !to-white`}
-      >
-        <ClientComponents />
-        <main className="z-0 h-screen w-screen overflow-auto pt-20 md:pt-16">
-          <div>{children}</div>
-        </main>
-      </body>
+    <html lang="en" className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
