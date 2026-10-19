@@ -14,7 +14,7 @@ const description =
   "Full-stack developer in Ankara building AI-powered SaaS products with Next.js, TypeScript and PostgreSQL.";
 
 export const metadata = {
-  metadataBase: new URL("https://firatkil.vercel.app"),
+  metadataBase: new URL("https://www.firatkil.com"),
   title: "Fırat Kıl — Full-Stack Developer",
   description,
   authors: [{ name: "Fırat Kıl" }],
