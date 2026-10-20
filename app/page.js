@@ -94,7 +94,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="band band-dark">
+        <section id="how" className="band band-dark">
           <div className="wrap">
             <div className="statement-grid">
             <p className="statement">
